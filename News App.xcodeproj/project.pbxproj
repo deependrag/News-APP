@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		4AE87EC1257D40ED002A0948 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87EC0257D40ED002A0948 /* AppDelegate.swift */; };
 		4AE87EC3257D40ED002A0948 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87EC2257D40ED002A0948 /* SceneDelegate.swift */; };
-		4AE87EC5257D40ED002A0948 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87EC4257D40ED002A0948 /* ViewController.swift */; };
 		4AE87EC8257D40ED002A0948 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE87EC6257D40ED002A0948 /* Main.storyboard */; };
 		4AE87ECA257D40F0002A0948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AE87EC9257D40F0002A0948 /* Assets.xcassets */; };
 		4AE87ECD257D40F0002A0948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AE87ECB257D40F0002A0948 /* LaunchScreen.storyboard */; };
+		4AE87EDC257D41D9002A0948 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87ED9257D41D9002A0948 /* APIConstant.swift */; };
+		4AE87EDD257D41D9002A0948 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87EDA257D41D9002A0948 /* APIClient.swift */; };
+		4AE87EDE257D41D9002A0948 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE87EDB257D41D9002A0948 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4AE87EBD257D40ED002A0948 /* News App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "News App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AE87EC0257D40ED002A0948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AE87EC2257D40ED002A0948 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4AE87EC4257D40ED002A0948 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4AE87EC7257D40ED002A0948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AE87EC9257D40F0002A0948 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AE87ECC257D40F0002A0948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AE87ECE257D40F0002A0948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AE87ED9257D41D9002A0948 /* APIConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		4AE87EDA257D41D9002A0948 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4AE87EDB257D41D9002A0948 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		4AE87EBF257D40ED002A0948 /* News App */ = {
 			isa = PBXGroup;
 			children = (
-				4AE87EC0257D40ED002A0948 /* AppDelegate.swift */,
-				4AE87EC2257D40ED002A0948 /* SceneDelegate.swift */,
-				4AE87EC4257D40ED002A0948 /* ViewController.swift */,
-				4AE87EC6257D40ED002A0948 /* Main.storyboard */,
-				4AE87EC9257D40F0002A0948 /* Assets.xcassets */,
-				4AE87ECB257D40F0002A0948 /* LaunchScreen.storyboard */,
+				4AE87ED7257D41C1002A0948 /* App */,
+				4AE87ED8257D41D9002A0948 /* Network */,
+				4AE87EE0257D439A002A0948 /* Modules */,
+				4AE87EE1257D43B3002A0948 /* Supporting Files */,
 				4AE87ECE257D40F0002A0948 /* Info.plist */,
 			);
 			path = "News App";
+			sourceTree = "<group>";
+		};
+		4AE87ED7257D41C1002A0948 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4AE87EC0257D40ED002A0948 /* AppDelegate.swift */,
+				4AE87EC2257D40ED002A0948 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4AE87ED8257D41D9002A0948 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4AE87ED9257D41D9002A0948 /* APIConstant.swift */,
+				4AE87EDA257D41D9002A0948 /* APIClient.swift */,
+				4AE87EDB257D41D9002A0948 /* Endpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4AE87EE0257D439A002A0948 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4AE87EE1257D43B3002A0948 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4AE87EC6257D40ED002A0948 /* Main.storyboard */,
+				4AE87EC9257D40F0002A0948 /* Assets.xcassets */,
+				4AE87ECB257D40F0002A0948 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AE87EC5257D40ED002A0948 /* ViewController.swift in Sources */,
+				4AE87EDC257D41D9002A0948 /* APIConstant.swift in Sources */,
 				4AE87EC1257D40ED002A0948 /* AppDelegate.swift in Sources */,
+				4AE87EDD257D41D9002A0948 /* APIClient.swift in Sources */,
+				4AE87EDE257D41D9002A0948 /* Endpoint.swift in Sources */,
 				4AE87EC3257D40ED002A0948 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU2AV96TM4;
 				INFOPLIST_FILE = "News App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deependra.News-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,6 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU2AV96TM4;
 				INFOPLIST_FILE = "News App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.deependra.News-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
