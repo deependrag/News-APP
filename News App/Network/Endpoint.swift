@@ -70,7 +70,7 @@ extension Endpoint {
             }
         }
         
-        request.setValue(APIConstant.PUBLIC_KEY, forHTTPHeaderField: "X-Api-Key")
+        request.setValue(APIConstant.API_KEY, forHTTPHeaderField: "X-Api-Key")
         
         return request
     }
@@ -79,20 +79,20 @@ extension Endpoint {
 
 //MARK:- Login
 enum APIService {
-    case sources(params: [String : String])
+    case topHeadlines(params: [String : String])
 }
 
 extension APIService : Endpoint {
     var path: String {
         switch  self {
-        case .sources:
-            return APIConstant.SOURCE_URL
+        case .topHeadlines:
+            return APIConstant.TOP_HEADLINES_URL
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .sources:
+        case .topHeadlines:
             return .get
         }
     }
@@ -106,7 +106,7 @@ extension APIService : Endpoint {
     
     var params: [String : String]? {
         switch self {
-        case .sources(let params):
+        case .topHeadlines(let params):
             return params
         }
     }
