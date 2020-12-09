@@ -15,17 +15,13 @@ extension String {
         self = self.capitalizingFirstLetter()
     }
     
-    func convertToLocalDate() -> Date? {
+    func parseDate() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         dateFormatter.locale =  Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-//        if let date = dateFormatter.date(from: self) {
-//            dateFormatter.locale = Locale.current
-//            dateFormatter.timeZone = TimeZone.current
-//            let dateStr = dateFormatter.string(from: date)
-//            return dateFormatter.date(from: dateStr)
-//        }
-        return dateFormatter.date(from: self)
+        guard let newDate = dateFormatter.date(from: self) else { return nil }
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        return dateFormatter.string(from: newDate)
     }
 }

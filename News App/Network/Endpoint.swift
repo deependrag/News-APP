@@ -77,7 +77,7 @@ extension Endpoint {
 }
 
 
-//MARK:- Login
+//MARK:- API Setup
 enum APIService {
     case topHeadlines(params: [String : String])
 }

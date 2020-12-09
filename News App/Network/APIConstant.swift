@@ -9,13 +9,12 @@ import Foundation
 class APIConstant {
     
     //APIKEY
-    public static let API_KEY = "8911140d30a34455905248e48dfabbe2"
-//    public static let API_KEY = "0784b92850154b118f0e4428eb7a55fd"
+    public static let API_KEY = "210b74ad61344910a77d77f6bdbaae71"
     
     //BASE URL
     public static let BASE_URL = "https://newsapi.org"
     
-    //NEWS SOURCE URL
+    //NEWS Headlines URL
     public static let TOP_HEADLINES_URL = "/v2/top-headlines"
     
 }

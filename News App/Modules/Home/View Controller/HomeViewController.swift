@@ -26,9 +26,9 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
         setupSlidingTab()
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    //Configure different category viewcontrollers
     override public func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
         return NewsCategory.allCases.map { (category) -> UIViewController in
@@ -40,7 +40,11 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
     
     // MARK: - PagerTabStrip View Setup
     private func setupSlidingTab(){
-        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        //Set View Controller Title
+        self.title = "News"
+        
+        //Setup Tab bar
         self.containerView = self.containerScrollView
         self.buttonBarView = self.topBarView
         
@@ -57,8 +61,7 @@ class HomeViewController: ButtonBarPagerTabStripViewController {
             self.view.bottomAnchor.constraint(equalTo: self.containerScrollView.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
         
-        /// change sliding tab color, doesn't support dynamic theme
-        // TODO: - Need to add workout for theme support
+        //Styling tabbar
         settings.style.buttonBarBackgroundColor = .primaryColor
         settings.style.buttonBarItemBackgroundColor = .primaryColor
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in

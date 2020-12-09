@@ -62,6 +62,10 @@ class NewsDetailsViewController: UIViewController {
         
         self.newsWebView.load(NSURLRequest(url: newsUrl) as URLRequest)
     }
+    
+    deinit {
+        print("News Details View dismissed")
+    }
 }
 
 extension NewsDetailsViewController : WKNavigationDelegate {

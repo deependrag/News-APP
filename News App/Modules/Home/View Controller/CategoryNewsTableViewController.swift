@@ -26,6 +26,16 @@ class CategoryNewsTableViewController: UITableViewController, IndicatorInfoProvi
         return IndicatorInfo(title: viewModel.tabTitle.capitalizingFirstLetter())
     }
     
+    func setupView() {
+        registerNIB()
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.separatorStyle = .none
+        self.tableView.prefetchDataSource = self
+        self.tableView.contentInset.bottom = 20
+        self.view.backgroundColor = .white
+        
+    }
+    
     func registerNIB() {
         self.tableView.register(UINib(nibName: viewModel.cellIdentifier, bundle: nil), forCellReuseIdentifier: viewModel.cellIdentifier)
         self.tableView.register(UINib(nibName: viewModel.bigBannerArticleTableViewCell, bundle: nil), forCellReuseIdentifier: viewModel.bigBannerArticleTableViewCell)
@@ -65,15 +75,6 @@ class CategoryNewsTableViewController: UITableViewController, IndicatorInfoProvi
     }
     
     
-    func setupView() {
-        registerNIB()
-        self.tableView.showsVerticalScrollIndicator = false
-        self.tableView.separatorStyle = .none
-        self.tableView.prefetchDataSource = self
-        self.tableView.contentInset.bottom = 20
-        self.view.backgroundColor = .white
-        
-    }
     
     @objc func dismissViewTapped() {
         self.dismiss(animated: true, completion: nil)
@@ -92,7 +93,7 @@ class CategoryNewsTableViewController: UITableViewController, IndicatorInfoProvi
         self.navigationController?.pushViewController(newsDetailsVC, animated: true)
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view delegate and data source
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -124,6 +125,7 @@ class CategoryNewsTableViewController: UITableViewController, IndicatorInfoProvi
     }
 }
 
+//MARK:- Prefetch Data
 extension CategoryNewsTableViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: viewModel.isLoadingCell) {

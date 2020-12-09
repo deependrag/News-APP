@@ -29,7 +29,7 @@ struct NewsResponseModel : Codable {
 
 }
 
-import Foundation
+
 struct Articles : Codable {
     let source : Source?
     let author : String?

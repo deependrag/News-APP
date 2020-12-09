@@ -147,7 +147,7 @@ class CategoryNewsViewModel {
         self.articles = []
     }
     
-    
+    //Send GET Request to fetch news
     func requestForHeadLines() {
         guard !isFetchInProgress else {
           return
@@ -176,7 +176,6 @@ class CategoryNewsViewModel {
                 self.responseModel = data
                 
                 self.articles.append(contentsOf: data?.articles ?? [])
-//                self.updateTableViewBackground()
                 
                 if self.total > self.currentCount && self.page != 1 {
                     let indexPathsToReload = self.calculateIndexPathsToReload(from: data?.articles ?? [])

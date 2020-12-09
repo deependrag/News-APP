@@ -51,12 +51,7 @@ class ArticleTableViewCell: UITableViewCell {
         self.sourceLabel.text = model?.source?.name
         self.newsImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.newsImageView.sd_setImage(with: URL(string: model?.urlToImage ?? ""), placeholderImage: UIImage(named: "placeholder"), options: [], context: nil)
-
-        if let localDate = model?.publishedAt?.convertToLocalDate() {
-            self.dateLabel.text = localDate.timeAgoDisplay()
-        }else {
-            self.dateLabel.text = ""
-        }
+        self.dateLabel.text = model?.publishedAt?.parseDate()
     }
     
 }
