@@ -1,26 +1,21 @@
 //
-//  ArticleTableViewCell.swift
+//  BigBannerArticleTableViewCell.swift
 //  News App
 //
-//  Created by Deependra Dhakal on 07/12/2020.
+//  Created by Deependra Dhakal on 08/12/2020.
 //
 
 import UIKit
 import SDWebImage
 
-class ArticleTableViewCell: UITableViewCell {
-    
+class BigBannerArticleTableViewCell: UITableViewCell {
+
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    @IBOutlet weak var newsImageView: UIImageView! {
-        didSet {
-            newsImageView.layer.cornerRadius = 8
-            newsImageView.clipsToBounds = true
-        }
-    }
+    @IBOutlet weak var newsImageView: UIImageView!
+    
     
     @IBOutlet weak var sourceView: UIView! {
         didSet {
@@ -28,6 +23,24 @@ class ArticleTableViewCell: UITableViewCell {
             sourceView.clipsToBounds = true
         }
     }
+    
+    lazy var gradientLayer : CAGradientLayer = {
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.colors = [UIColor.black.withAlphaComponent(0.0).cgColor,
+                           UIColor.black.withAlphaComponent(1.0).cgColor]
+        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradient.endPoint = CGPoint(x: 1.0, y: 1.0)
+        return gradient
+    }()
+    
+
+    @IBOutlet weak var gradientBGView: UIView! {
+        didSet {
+            gradientLayer.frame = gradientBGView.bounds
+            gradientBGView.layer.insertSublayer(gradientLayer, at: 0)
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,11 +60,10 @@ class ArticleTableViewCell: UITableViewCell {
     
     func updateUI(model: Articles?) {
         self.titleLabel.text = model?.title
-        self.descriptionLabel.text = model?.description
         self.sourceLabel.text = model?.source?.name
         self.newsImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         self.newsImageView.sd_setImage(with: URL(string: model?.urlToImage ?? ""), placeholderImage: UIImage(named: "placeholder"), options: [], context: nil)
-
+        
         if let localDate = model?.publishedAt?.convertToLocalDate() {
             self.dateLabel.text = localDate.timeAgoDisplay()
         }else {
