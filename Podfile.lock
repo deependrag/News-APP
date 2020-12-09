@@ -1,0 +1,26 @@
+PODS:
+  - SDWebImage (5.9.1):
+    - SDWebImage/Core (= 5.9.1)
+  - SDWebImage/Core (5.9.1)
+  - SkeletonView (1.9)
+  - XLPagerTabStrip (9.0.0)
+
+DEPENDENCIES:
+  - SDWebImage (~> 5.0)
+  - SkeletonView
+  - XLPagerTabStrip (~> 9.0)
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
+    - SkeletonView
+    - XLPagerTabStrip
+
+SPEC CHECKSUMS:
+  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
+  SkeletonView: f72ac4df69730e48324efae062ba580c2fce974d
+  XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
+
+PODFILE CHECKSUM: b9fb6991cdbac98bca0de2ea81c3c61ef200515c
+
+COCOAPODS: 1.8.3
